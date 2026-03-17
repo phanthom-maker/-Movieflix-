@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieFlix - Watch Free Movies Online</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">MovieFlix</h1>
+            <nav>
+                <a href="#" class="active">Home</a>
+                <a href="#">Movies</a>
+                <a href="#">TV Shows</a>
+                <a href="#">New & Popular</a>
+                <a href="#">My List</a>
+            </nav>
+            <div class="nav-right">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero" id="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title" id="hero-title">Loading...</h1>
+            <p class="hero-description" id="hero-description"></p>
+            <div class="hero-buttons">
+                <button class="btn play-btn" id="hero-play-btn"><i class="fas fa-play"></i> Play</button>
+                <button class="btn info-btn" id="hero-info-btn"><i class="fas fa-info-circle"></i> More Info</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movie Rows -->
+    <div class="movie-rows">
+        <div class="movie-row">
+            <h2 class="row-title">Trending Now</h2>
+            <div class="movie-slider">
+                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="movies-grid" id="trending"></div>
+                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <div class="movie-row">
+            <h2 class="row-title">Popular on MovieFlix</h2>
+            <div class="movie-slider">
+                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="movies-grid" id="popular"></div>
+                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <div class="movie-row">
+            <h2 class="row-title">Top Rated Movies</h2>
+            <div class="movie-slider">
+                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="movies-grid" id="top-rated"></div>
+                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <div class="movie-row">
+            <h2 class="row-title">Upcoming Releases</h2>
+            <div class="movie-slider">
+                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="movies-grid" id="upcoming"></div>
+                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movie Info Modal -->
+    <div class="modal" id="movie-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <img src="" alt="" class="modal-backdrop" id="modal-backdrop">
+                <div class="modal-info">
+                    <h2 id="modal-title"></h2>
+                    <div class="modal-meta">
+                        <span class="rating" id="modal-rating"></span>
+                        <span class="year" id="modal-year"></span>
+                        <span class="duration" id="modal-duration"></span>
+                    </div>
+                    <p class="modal-overview" id="modal-overview"></p>
+                    <div class="modal-actions">
+                        <button class="btn play-btn" id="modal-play-btn"><i class="fas fa-play"></i> Watch Now</button>
+                        <button class="btn add-btn"><i class="fas fa-plus"></i> My List</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Player Modal -->
+    <div class="video-modal" id="video-modal">
+        <div class="video-modal-content">
+            <div class="video-header">
+                <h2 class="video-title" id="video-title"></h2>
+                <span class="close-video">&times;</span>
+            </div>
+            <div class="video-container" id="video-container">
+                <!-- Video iframe will be inserted here -->
+            </div>
+            <div class="server-selector">
+                <h3>Select Server:</h3>
+                <div class="server-buttons">
+                    <button class="server-btn active" data-server="vidsrc">Server 1 (VidSrc)</button>
+                    <button class="server-btn" data-server="embed">Server 2 (Embed.su)</button>
+                    <button class="server-btn" data-server="2embed">Server 3 (2Embed)</button>
+                    <button class="server-btn" data-server="smashy">Server 4 (Smashy)</button>
+                    <button class="server-btn" data-server="auto">Server 5 (Auto)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+                                                  </html>
