@@ -11,20 +11,39 @@
     <!-- Navbar -->
     <div class="navbar">
         <div class="nav-container">
-            <h1 class="logo">MovieFlix</h1>
+            <h1 class="logo" onclick="location.reload()">MovieFlix</h1>
             <nav>
-                <a href="#" class="active">Home</a>
-                <a href="#">Movies</a>
-                <a href="#">TV Shows</a>
-                <a href="#">New & Popular</a>
-                <a href="#">My List</a>
+                <a href="#" class="nav-link active" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="movies">Movies</a>
+                <a href="#" class="nav-link" data-page="tvshows">TV Shows</a>
+                <a href="#" class="nav-link" data-page="new-popular">New & Popular</a>
+                <a href="#" class="nav-link" data-page="my-list">My List</a>
             </nav>
             <div class="nav-right">
-                <i class="fas fa-search"></i>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search movies...">
+                </div>
                 <i class="fas fa-bell"></i>
                 <i class="fas fa-user-circle"></i>
             </div>
         </div>
+    </div>
+
+    <!-- Genre Filter Bar -->
+    <div class="genre-bar">
+        <button class="genre-btn active" data-genre="all">All</button>
+        <button class="genre-btn" data-genre="28">Action</button>
+        <button class="genre-btn" data-genre="12">Adventure</button>
+        <button class="genre-btn" data-genre="16">Animation</button>
+        <button class="genre-btn" data-genre="35">Comedy</button>
+        <button class="genre-btn" data-genre="80">Crime</button>
+        <button class="genre-btn" data-genre="18">Drama</button>
+        <button class="genre-btn" data-genre="14">Fantasy</button>
+        <button class="genre-btn" data-genre="27">Horror</button>
+        <button class="genre-btn" data-genre="10749">Romance</button>
+        <button class="genre-btn" data-genre="878">Sci-Fi</button>
+        <button class="genre-btn" data-genre="53">Thriller</button>
     </div>
 
     <!-- Hero Section -->
@@ -39,42 +58,79 @@
         </div>
     </div>
 
-    <!-- Movie Rows -->
-    <div class="movie-rows">
-        <div class="movie-row">
-            <h2 class="row-title">Trending Now</h2>
-            <div class="movie-slider">
-                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
-                <div class="movies-grid" id="trending"></div>
-                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+    <!-- Main Content Area -->
+    <div class="main-content" id="main-content">
+        <!-- Movie Rows (Home Page) -->
+        <div class="movie-rows" id="movie-rows">
+            <div class="movie-row">
+                <h2 class="row-title">Trending Now</h2>
+                <div class="movie-slider">
+                    <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="movies-grid" id="trending"></div>
+                    <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="movie-row">
+                <h2 class="row-title">Popular on MovieFlix</h2>
+                <div class="movie-slider">
+                    <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="movies-grid" id="popular"></div>
+                    <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="movie-row">
+                <h2 class="row-title">Top Rated Movies</h2>
+                <div class="movie-slider">
+                    <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="movies-grid" id="top-rated"></div>
+                    <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="movie-row">
+                <h2 class="row-title">Upcoming Releases</h2>
+                <div class="movie-slider">
+                    <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="movies-grid" id="upcoming"></div>
+                    <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
         </div>
 
-        <div class="movie-row">
-            <h2 class="row-title">Popular on MovieFlix</h2>
-            <div class="movie-slider">
-                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
-                <div class="movies-grid" id="popular"></div>
-                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
-            </div>
+        <!-- Movies Page -->
+        <div class="category-page" id="movies-page" style="display: none;">
+            <h1 class="page-title">Movies</h1>
+            <div class="movies-grid page-grid" id="movies-grid"></div>
+            <div class="pagination" id="movies-pagination"></div>
         </div>
 
-        <div class="movie-row">
-            <h2 class="row-title">Top Rated Movies</h2>
-            <div class="movie-slider">
-                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
-                <div class="movies-grid" id="top-rated"></div>
-                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
-            </div>
+        <!-- TV Shows Page -->
+        <div class="category-page" id="tvshows-page" style="display: none;">
+            <h1 class="page-title">TV Shows</h1>
+            <div class="movies-grid page-grid" id="tvshows-grid"></div>
+            <div class="pagination" id="tvshows-pagination"></div>
         </div>
 
-        <div class="movie-row">
-            <h2 class="row-title">Upcoming Releases</h2>
-            <div class="movie-slider">
-                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
-                <div class="movies-grid" id="upcoming"></div>
-                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
-            </div>
+        <!-- New & Popular Page -->
+        <div class="category-page" id="new-popular-page" style="display: none;">
+            <h1 class="page-title">New & Popular</h1>
+            <div class="movies-grid page-grid" id="new-popular-grid"></div>
+            <div class="pagination" id="new-popular-pagination"></div>
+        </div>
+
+        <!-- My List Page -->
+        <div class="category-page" id="my-list-page" style="display: none;">
+            <h1 class="page-title">My List</h1>
+            <div class="movies-grid page-grid" id="my-list-grid"></div>
+            <button class="btn clear-list-btn" id="clear-list-btn" style="margin: 20px auto; display: block;">Clear My List</button>
+        </div>
+
+        <!-- Search Results Page -->
+        <div class="category-page" id="search-page" style="display: none;">
+            <h1 class="page-title">Search Results</h1>
+            <div class="movies-grid page-grid" id="search-grid"></div>
         </div>
     </div>
 
@@ -90,11 +146,12 @@
                         <span class="rating" id="modal-rating"></span>
                         <span class="year" id="modal-year"></span>
                         <span class="duration" id="modal-duration"></span>
+                        <span class="genre" id="modal-genre"></span>
                     </div>
                     <p class="modal-overview" id="modal-overview"></p>
                     <div class="modal-actions">
                         <button class="btn play-btn" id="modal-play-btn"><i class="fas fa-play"></i> Watch Now</button>
-                        <button class="btn add-btn"><i class="fas fa-plus"></i> My List</button>
+                        <button class="btn add-btn" id="modal-add-btn"><i class="fas fa-plus"></i> Add to My List</button>
                     </div>
                 </div>
             </div>
@@ -126,4 +183,4 @@
 
     <script src="script.js"></script>
 </body>
-                                                  </html>
+                </html>
